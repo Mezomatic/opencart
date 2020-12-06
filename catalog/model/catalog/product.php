@@ -412,6 +412,7 @@ class ModelCatalogProduct extends Model {
  		return $query->rows;
 	}
 
+	// Кастомный функционал
 	public function getPurchasesCount($product_id) {
 		$query = $this->db->query("SELECT SUM(quantity) AS sum FROM " . DB_PREFIX . "order_product WHERE product_id = '" . (int)$product_id . "'");
 		return $query->row['sum'];

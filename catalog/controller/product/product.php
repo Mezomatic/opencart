@@ -281,8 +281,15 @@ class ControllerProductProduct extends Controller {
 				$data['price'] = false;
 			}
 
+			// Кастомный функционал
 			$product_count = $this->model_catalog_product->getPurchasesCount($product_id);
-			$data['product_count'] = $product_count;	
+
+			if (empty($product_count)) {
+				$product_count = 0;
+			}
+
+			$data['product_count'] = $product_count;
+				
 
 			if ((float)$product_info['special']) {
 				$data['special'] = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);

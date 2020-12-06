@@ -136,12 +136,15 @@
             {% if not special %}
             <li>
               <h2>{{ price }}</h2>
-              <li>{{ text_product_count }} {{ product_count }}</li>
+              {# Кастомный функционал #}
+              <li style="color: red">{{ text_product_count }}  {{ product_count }}</li>
             </li>
             {% else %}
             <li><span style="text-decoration: line-through;">{{ price }}</span></li>
             <li>
               <h2>{{ special }}</h2>
+               {# Кастомный функционал #}
+              <li style="color: red">{{ text_product_count }}  {{ product_count }}</li>
             </li>
             {% endif %}
             {% if tax %}
